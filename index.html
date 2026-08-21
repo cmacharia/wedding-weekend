@@ -1,0 +1,1315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Columbus — A Weekend Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cover: #14110d;
+        --cover-text: #f3ede1;
+        --cover-soft: #c3c8cd;
+        --cover-faint: #93989d;
+        --cover-brass: #d1ac78;
+        --cover-line: rgba(209, 172, 120, 0.35);
+
+        --page: #f5efe3;
+        --card: #fffdf7;
+        --ink: #221d18;
+        --ink-soft: #4a4540;
+        --ink-faint: #5f5951;
+        --brass: #7a5a28;
+        --rust: #8a3010;
+        --line: rgba(34, 29, 24, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation-duration: 0.001ms !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        background: var(--page);
+        color: var(--ink);
+        font-family: "Work Sans", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--brass);
+        outline-offset: 3px;
+      }
+
+      .mono {
+        font-family: "IBM Plex Mono", monospace;
+        letter-spacing: 0.08em;
+      }
+
+      /* ---------- HERO / COVER ---------- */
+      .hero {
+        min-height: 92vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 8vh 6vw;
+        position: relative;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(20, 17, 13, 0.72) 0%,
+            rgba(20, 17, 13, 0.55) 45%,
+            rgba(20, 17, 13, 0.88) 100%
+          ),
+          radial-gradient(
+            ellipse at 50% 0%,
+            rgba(209, 172, 120, 0.12),
+            transparent 55%
+          ),
+          url("https://commons.wikimedia.org/wiki/Special:FilePath/Downtown_Columbus_View_from_Main_St_Bridge_-_edit1.jpg?width=2200")
+            center 60% / cover no-repeat,
+          var(--cover);
+      }
+
+      .hero-credit {
+        position: absolute;
+        bottom: 1.1rem;
+        right: 1.4rem;
+        font-size: 0.62rem;
+        color: var(--cover-faint);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .hero-credit a {
+        color: var(--cover-faint);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+      }
+      .hero-credit a:hover,
+      .hero-credit a:focus-visible {
+        color: var(--cover-brass);
+        border-color: var(--cover-brass);
+      }
+
+      .hero-frame {
+        border: 1px solid var(--cover-line);
+        background: rgba(20, 17, 13, 0.38);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        padding: 3.5rem 3rem;
+        max-width: 640px;
+        position: relative;
+      }
+      .hero-frame::before,
+      .hero-frame::after {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border: 1px solid var(--cover-brass);
+      }
+      .hero-frame::before {
+        top: -1px;
+        left: -1px;
+        border-right: none;
+        border-bottom: none;
+      }
+      .hero-frame::after {
+        bottom: -1px;
+        right: -1px;
+        border-left: none;
+        border-top: none;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        color: var(--cover-brass);
+        margin-bottom: 1.6rem;
+        display: inline-block;
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        font-style: italic;
+        font-size: clamp(2.6rem, 6vw, 4.6rem);
+        line-height: 1.02;
+        margin: 0 0 1.3rem 0;
+        color: var(--cover-text);
+      }
+
+      .hero .dates {
+        font-size: 0.78rem;
+        color: var(--cover-soft);
+        text-transform: uppercase;
+        margin-bottom: 1.6rem;
+      }
+
+      .hero p.desc {
+        font-size: 1.02rem;
+        line-height: 1.7;
+        color: var(--cover-soft);
+        max-width: 460px;
+        margin: 0 auto;
+      }
+
+      .hero-index {
+        margin-top: 3.2rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.76rem;
+        color: var(--cover-faint);
+        text-transform: uppercase;
+      }
+      .hero-index a {
+        color: var(--cover-faint);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .hero-index a:hover,
+      .hero-index a:focus-visible {
+        color: var(--cover-brass);
+        border-color: var(--cover-brass);
+      }
+
+      /* ---------- ROOM DIVIDER ---------- */
+      .room {
+        padding: 5.5rem 6vw 2rem 6vw;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .room-header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: end;
+        gap: 2rem;
+        margin-bottom: 3.2rem;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 1.6rem;
+      }
+
+      .room-numeral {
+        font-family: "Fraunces", serif;
+        font-weight: 400;
+        font-size: clamp(3.2rem, 9vw, 6rem);
+        line-height: 0.85;
+        color: var(--brass);
+      }
+
+      .room-titling {
+        padding-bottom: 0.4rem;
+      }
+
+      .room-label {
+        font-size: 0.68rem;
+        color: var(--ink-faint);
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+      }
+
+      .room-day {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+        color: var(--ink);
+      }
+
+      .room-date {
+        font-size: 0.84rem;
+        color: var(--ink-faint);
+        margin-top: 0.3rem;
+      }
+
+      /* ---------- PLAQUES (event cards) ---------- */
+      .exhibits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .plaque {
+        border: 1px solid var(--line);
+        background: var(--card);
+        box-shadow: 0 1px 3px rgba(34, 29, 24, 0.06);
+        padding: 1.7rem 1.6rem 1.5rem 1.6rem;
+        position: relative;
+        transition:
+          border-color 0.25s ease,
+          box-shadow 0.25s ease,
+          transform 0.25s ease;
+      }
+      .plaque:hover,
+      .plaque:focus-within {
+        border-color: var(--brass);
+        box-shadow: 0 6px 16px rgba(34, 29, 24, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .plaque-code {
+        position: absolute;
+        top: 1.1rem;
+        right: 1.4rem;
+        font-size: 0.68rem;
+        color: var(--brass);
+      }
+
+      .plaque-medium {
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: var(--rust);
+        margin-bottom: 0.7rem;
+      }
+
+      .plaque h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin: 0 0 0.7rem 0;
+        line-height: 1.28;
+        padding-right: 3.2rem;
+        color: var(--ink);
+      }
+      .plaque h3 a {
+        text-decoration: none;
+        border-bottom: 1px solid rgba(34, 29, 24, 0.3);
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .plaque h3 a:hover,
+      .plaque h3 a:focus-visible {
+        color: var(--rust);
+        border-color: var(--rust);
+      }
+
+      .plaque .blurb {
+        font-size: 0.92rem;
+        line-height: 1.62;
+        color: var(--ink-soft);
+        margin: 0 0 1.1rem 0;
+      }
+
+      .plaque .onview {
+        border-top: 1px solid var(--line);
+        padding-top: 0.85rem;
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .plaque .onview .label {
+        color: var(--brass);
+        font-weight: 500;
+      }
+
+      .room-note {
+        font-size: 0.8rem;
+        color: var(--ink-faint);
+        font-style: italic;
+        margin-top: 0.6rem;
+      }
+
+      /* ---------- PERMANENT COLLECTION ---------- */
+      .collection {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 6rem 6vw 8rem 6vw;
+      }
+      .collection .room-header {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .index-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 3.6rem;
+      }
+
+      .index-group h4 {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 1.35rem;
+        color: var(--ink);
+        margin: 0 0 0.3rem 0;
+      }
+      .index-group .group-sub {
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+        text-transform: uppercase;
+        margin-bottom: 1.4rem;
+      }
+
+      .index-list {
+        columns: 2;
+        column-gap: 2.6rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .index-list li {
+        break-inside: avoid;
+        margin-bottom: 0.6rem;
+        padding-bottom: 0.55rem;
+        border-bottom: 1px dotted var(--line);
+        font-size: 0.92rem;
+      }
+      .index-list a {
+        text-decoration: none;
+        color: var(--ink);
+        transition: color 0.2s;
+      }
+      .index-list a:hover,
+      .index-list a:focus-visible {
+        color: var(--rust);
+      }
+
+      .index-list--notes {
+        columns: 1;
+      }
+      .idx-note {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--ink-faint);
+        margin-top: 0.2rem;
+        font-style: italic;
+      }
+
+      @media (max-width: 640px) {
+        .index-list {
+          columns: 1;
+        }
+      }
+
+      /* ---------- FOOTER (back cover) ---------- */
+      footer {
+        text-align: center;
+        padding: 3rem 6vw 3.5rem;
+        font-size: 0.74rem;
+        color: var(--cover-faint);
+        background: var(--cover);
+      }
+
+      @media (max-width: 640px) {
+        .room {
+          padding: 4rem 6vw 1rem;
+        }
+        .room-header {
+          grid-template-columns: 1fr;
+          gap: 0.6rem;
+        }
+        .room-numeral {
+          font-size: 3.4rem;
+        }
+        .hero-frame {
+          padding: 2.4rem 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-frame">
+        <span class="eyebrow mono">Columbus, Ohio</span>
+        <h1>Things To Do</h1>
+        <div class="dates mono">September 10 – 13, 2026</div>
+        <p class="desc">
+          A short walk through the weekend — four rooms, one for each day,
+          gathering the music, murals, markets, and matches worth showing up
+          for. Plus a permanent collection of local favorites.
+        </p>
+        <div class="hero-index">
+          <a href="#room-1">I. Thursday</a>
+          <a href="#room-2">II. Friday</a>
+          <a href="#room-3">III. Saturday</a>
+          <a href="#room-4">IV. Sunday</a>
+          <a href="#collection">The Collection</a>
+        </div>
+      </div>
+      <div class="hero-credit">
+        Photo:
+        <a
+          href="https://commons.wikimedia.org/wiki/File:Downtown_Columbus_View_from_Main_St_Bridge_-_edit1.jpg"
+          target="_blank"
+          rel="noopener"
+          >Wikimedia Commons</a
+        >
+      </div>
+    </section>
+
+    <!-- ROOM I — THURSDAY -->
+    <section class="room" id="room-1">
+      <div class="room-header">
+        <div class="room-numeral">I</div>
+        <div class="room-titling">
+          <div class="room-label mono">Room One</div>
+          <div class="room-day">Thursday</div>
+          <div class="room-date mono">September 10</div>
+        </div>
+      </div>
+
+      <div class="exhibits">
+        <article class="plaque">
+          <span class="plaque-code mono">TH·01</span>
+          <div class="plaque-medium">Film · Opening Night</div>
+          <h3>
+            <a href="https://cinemacolumbus.com/" target="_blank" rel="noopener"
+              >Cinema Columbus Film Festival</a
+            >
+          </h3>
+          <p class="blurb">
+            Opening night kicks off with Origins: Shorts of Ohio, a block of
+            four short films by Ohio filmmakers, followed by a Q&amp;A. The
+            festival runs through Sunday across venues citywide.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 7:00 PM</span>
+            <span>Gateway Film Center</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">TH·02</span>
+          <div class="plaque-medium">Live Music</div>
+          <h3>
+            <a
+              href="https://shortnorth.org/events/summer-music-series-at-stories-on-high-3/"
+              target="_blank"
+              rel="noopener"
+              >Summer Music Series at Stories on High</a
+            >
+          </h3>
+          <p class="blurb">
+            The season's closing set of the live series, moving from classic
+            jazz to rock and roll. Tonight's bill: the George Barrie Band.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 8:00 – 11:00 PM</span>
+            <span>Stories on High</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">TH·03</span>
+          <div class="plaque-medium">Music · Free Admission</div>
+          <h3>
+            <a
+              href="https://www.columbusmuseum.org/bam-thursdays"
+              target="_blank"
+              rel="noopener"
+              >BAM Thursdays</a
+            >
+          </h3>
+          <p class="blurb">
+            Bar, Art, and Music in the Sculpture Garden — a featured local
+            artist from 6–8 PM, DJs from 5–10 PM, and free general admission to
+            the galleries all evening.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 5:00 – 10:00 PM</span>
+            <span>Columbus Museum of Art</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">TH·04</span>
+          <div class="plaque-medium">Live Jazz</div>
+          <h3>
+            <a
+              href="https://www.badabeanbadabooze.com/location/quarry-trails/"
+              target="_blank"
+              rel="noopener"
+              >Off the Record: Jazz Night at the Quarry</a
+            >
+          </h3>
+          <p class="blurb">
+            A weekly Thursday tradition — intimate live jazz, craft cocktails,
+            and lake views at Bada Bean Bada Booze.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 7:00 – 9:00 PM</span>
+            <span>Quarry Trails</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">TH·05</span>
+          <div class="plaque-medium">Outdoor Movie</div>
+          <h3>
+            <a
+              href="https://nightlightseries.com/columbus/september-10-2026/"
+              target="_blank"
+              rel="noopener"
+              >NightLight Outdoor Movie Series — La La Land</a
+            >
+          </h3>
+          <p class="blurb">
+            A screening under the open sky, part of the traveling NightLight
+            outdoor series.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> Evening, at dusk</span>
+            <span>Columbus</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">TH·06</span>
+          <div class="plaque-medium">Speakeasy · Bar</div>
+          <h3>
+            <a
+              href="https://www.columbusmuseum.org/bar-room"
+              target="_blank"
+              rel="noopener"
+              >Bar Room at the Pizzuti</a
+            >
+          </h3>
+          <p class="blurb">
+            A third-floor speakeasy inspired by the rum bars of the Bahamas,
+            linking Columbus to the Caribbean through Afro-Caribbean music and
+            the living legacies of the African diaspora in Central Ohio.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 2:00 – 8:00 PM</span>
+            <span>The Pizzuti</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROOM II — FRIDAY -->
+    <section class="room" id="room-2">
+      <div class="room-header">
+        <div class="room-numeral">II</div>
+        <div class="room-titling">
+          <div class="room-label mono">Room Two</div>
+          <div class="room-day">Friday</div>
+          <div class="room-date mono">September 11</div>
+        </div>
+      </div>
+
+      <div class="exhibits">
+        <article class="plaque">
+          <span class="plaque-code mono">FR·01</span>
+          <div class="plaque-medium">Festival · Murals</div>
+          <h3>
+            <a href="https://934gallery.org/" target="_blank" rel="noopener"
+              >934 Fest — Day One</a
+            >
+          </h3>
+          <p class="blurb">
+            Live music and freshly painted murals fill the outdoor gallery,
+            including a new featured wall by @lowbarluka, alongside craft beer,
+            food trucks, and new exhibitions from @emilymoores_art, @maagui.07,
+            and @toocool4spool.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> All day</span>
+            <span>934 Gallery</span>
+          </div>
+          <p class="room-note">
+            Dates are a save-the-date from the venue — worth a quick check
+            closer to the weekend.
+          </p>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">FR·02</span>
+          <div class="plaque-medium">Market · Community</div>
+          <h3>
+            <a
+              href="https://columbusunderground.com/events/franklinton-friday/"
+              target="_blank"
+              rel="noopener"
+              >Franklinton Friday: The Good Market</a
+            >
+          </h3>
+          <p class="blurb">
+            A neighborhood market night in Franklinton, with local vendors,
+            food, and community on Town Street.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 6:00 – 10:00 PM</span>
+            <span>400 W Town St</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">FR·03</span>
+          <div class="plaque-medium">Live Music</div>
+          <h3>
+            <a
+              href="https://www.eventbrite.com/e/summer-music-series-the-lawn-at-high-water-alley-tickets-1991608958006"
+              target="_blank"
+              rel="noopener"
+              >Summer Music Series: The Lawn at High Water Alley</a
+            >
+          </h3>
+          <p class="blurb">
+            An evening on the lawn featuring
+            <a
+              href="https://www.instagram.com/iamhawa_music/"
+              target="_blank"
+              rel="noopener"
+              style="border-bottom: 1px solid rgba(34, 29, 24, 0.3)"
+              >Hawa</a
+            >.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> Evening</span>
+            <span>High Water Alley</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">FR·04</span>
+          <div class="plaque-medium">Comedy · Secret Show</div>
+          <h3>Don't Tell Comedy</h3>
+          <p class="blurb">
+            No spoilers — the lineup of four to seven comics stays unknown until
+            showtime, and the exact address is sent the morning of. Only the
+            neighborhood is public.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 8:00 PM</span>
+            <span>Gahanna · Secret Location</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">FR·05</span>
+          <div class="plaque-medium">Festival · Beer</div>
+          <h3>
+            <a
+              href="https://columbusoktoberfest.com/about/"
+              target="_blank"
+              rel="noopener"
+              >Schmidt's Oktoberfest</a
+            >
+          </h3>
+          <p class="blurb">
+            Three days of the city's German-American celebration returns to the
+            fairgrounds. Free admission all weekend.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 5:00 PM – 12:00 AM</span>
+            <span>Ohio Expo Center</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">FR·06</span>
+          <div class="plaque-medium">Speakeasy · Bar</div>
+          <h3>
+            <a
+              href="https://www.columbusmuseum.org/bar-room"
+              target="_blank"
+              rel="noopener"
+              >Bar Room at the Pizzuti</a
+            >
+          </h3>
+          <p class="blurb">
+            Friday and Saturday hours run later — the same Caribbean-inflected
+            room, with more night ahead of it.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 2:00 – 10:00 PM</span>
+            <span>The Pizzuti</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROOM III — SATURDAY -->
+    <section class="room" id="room-3">
+      <div class="room-header">
+        <div class="room-numeral">III</div>
+        <div class="room-titling">
+          <div class="room-label mono">Room Three</div>
+          <div class="room-day">Saturday</div>
+          <div class="room-date mono">September 12</div>
+        </div>
+      </div>
+
+      <div class="exhibits">
+        <article class="plaque">
+          <span class="plaque-code mono">SA·01</span>
+          <div class="plaque-medium">Festival · Murals</div>
+          <h3>
+            <a
+              href="https://www.instagram.com/934fest/"
+              target="_blank"
+              rel="noopener"
+              >934 Fest — Day Two</a
+            >
+          </h3>
+          <p class="blurb">
+            The second day of murals, live music, craft beer, and food trucks in
+            934's outdoor gallery.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> All day</span>
+            <span>934 Gallery</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SA·02</span>
+          <div class="plaque-medium">Talk · Live Performance</div>
+          <h3>
+            <a
+              href="https://www.columbusmuseum.org/events/event/6270522"
+              target="_blank"
+              rel="noopener"
+              >Mozart to Matisse | To the Stars</a
+            >
+          </h3>
+          <p class="blurb">
+            A tour of celestial landscapes in the American collection led by
+            curator Molly K. Eckel, followed by a live performance from Columbus
+            Symphony Orchestra musicians.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 2:00 PM</span>
+            <span>Columbus Museum of Art</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SA·03</span>
+          <div class="plaque-medium">Match Day</div>
+          <h3>
+            <a
+              href="https://scottsmiraclegrofield.com/event/columbus-crew-vs-red-bull-new-york/"
+              target="_blank"
+              rel="noopener"
+              >Columbus Crew vs. New York Red Bulls</a
+            >
+          </h3>
+          <p class="blurb">
+            Regular-season MLS action as the Crew host the Red Bulls at home.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 7:30 PM</span>
+            <span>Lower.com Field</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SA·04</span>
+          <div class="plaque-medium">Market</div>
+          <h3>
+            <a
+              href="https://www.facebook.com/germanvillagefarmersmarket"
+              target="_blank"
+              rel="noopener"
+              >German Village Farmers Market</a
+            >
+          </h3>
+          <p class="blurb">
+            Local produce, flowers, and goods in one of Columbus's oldest
+            neighborhoods.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> Morning</span>
+            <span>German Village</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SA·05</span>
+          <div class="plaque-medium">Comedy · Secret Show</div>
+          <h3>Don't Tell Comedy</h3>
+          <p class="blurb">
+            Saturday's edition of the same secret-lineup format — neighborhood
+            only, address the morning of.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 7:00 PM</span>
+            <span>Gahanna · Secret Location</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SA·06</span>
+          <div class="plaque-medium">Festival · Beer</div>
+          <h3>
+            <a
+              href="https://columbusoktoberfest.com/about/"
+              target="_blank"
+              rel="noopener"
+              >Schmidt's Oktoberfest</a
+            >
+          </h3>
+          <p class="blurb">
+            The longest day of the festival, running from midday straight
+            through to midnight. Free admission.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 12:00 PM – 12:00 AM</span>
+            <span>Ohio Expo Center</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SA·07</span>
+          <div class="plaque-medium">Speakeasy · Bar</div>
+          <h3>
+            <a
+              href="https://www.columbusmuseum.org/bar-room"
+              target="_blank"
+              rel="noopener"
+              >Bar Room at the Pizzuti</a
+            >
+          </h3>
+          <p class="blurb">
+            Same room, same hours as Friday — a steady anchor for the middle of
+            the weekend.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 2:00 – 10:00 PM</span>
+            <span>The Pizzuti</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROOM IV — SUNDAY -->
+    <section class="room" id="room-4">
+      <div class="room-header">
+        <div class="room-numeral">IV</div>
+        <div class="room-titling">
+          <div class="room-label mono">Room Four</div>
+          <div class="room-day">Sunday</div>
+          <div class="room-date mono">September 13</div>
+        </div>
+      </div>
+
+      <div class="exhibits">
+        <article class="plaque">
+          <span class="plaque-code mono">SU·01</span>
+          <div class="plaque-medium">Market · Makers</div>
+          <h3>
+            <a href="https://www.gv-mm.com/" target="_blank" rel="noopener"
+              >German Village Makers Market</a
+            >
+          </h3>
+          <p class="blurb">
+            Handmade goods and local makers close out the weekend in German
+            Village.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> Daytime</span>
+            <span>German Village</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SU·02</span>
+          <div class="plaque-medium">Festival · Beer</div>
+          <h3>
+            <a
+              href="https://columbusoktoberfest.com/about/"
+              target="_blank"
+              rel="noopener"
+              >Schmidt's Oktoberfest</a
+            >
+          </h3>
+          <p class="blurb">
+            The festival's closing day, wrapping up mid-afternoon. Free
+            admission.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 12:00 – 8:00 PM</span>
+            <span>Ohio Expo Center</span>
+          </div>
+        </article>
+
+        <article class="plaque">
+          <span class="plaque-code mono">SU·03</span>
+          <div class="plaque-medium">Speakeasy · Bar</div>
+          <h3>
+            <a
+              href="https://www.columbusmuseum.org/bar-room"
+              target="_blank"
+              rel="noopener"
+              >Bar Room at the Pizzuti</a
+            >
+          </h3>
+          <p class="blurb">
+            A daytime close to the room's week — brunch-hour instead of night.
+          </p>
+          <div class="onview">
+            <span><span class="label">On view</span> 10:00 AM – 4:00 PM</span>
+            <span>The Pizzuti</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PERMANENT COLLECTION -->
+    <section class="collection" id="collection">
+      <div class="room-header">
+        <div class="room-numeral">V</div>
+        <div class="room-titling">
+          <div class="room-label mono">Permanent Collection</div>
+          <div class="room-day">Local Favorites</div>
+          <div class="room-date mono">On view year-round</div>
+        </div>
+      </div>
+
+      <div class="index-groups">
+        <div class="index-group">
+          <h4>Restaurants &amp; Bars</h4>
+          <div class="group-sub mono">Worth your time</div>
+          <ul class="index-list">
+            <li>
+              <a
+                href="https://www.emmettscafe.com/"
+                target="_blank"
+                rel="noopener"
+                >Emmett's Cafe</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.foxinthesnow.com/"
+                target="_blank"
+                rel="noopener"
+                >Fox in the Snow Cafe</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.pelinospasta.com/"
+                target="_blank"
+                rel="noopener"
+                >Pelino's Pasta</a
+              >
+            </li>
+            <li>
+              <a href="https://brassicas.com/" target="_blank" rel="noopener"
+                >Brassica</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://thepearlrestaurant.com/"
+                target="_blank"
+                rel="noopener"
+                >The Pearl</a
+              >
+            </li>
+            <li>
+              <a href="https://domoskb.com/" target="_blank" rel="noopener"
+                >DOMO Sushi Kitchen Bar</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://delmarmediterranean.com/locations-menus/columbus/"
+                target="_blank"
+                rel="noopener"
+                >Del Mar</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.baritalia.com/locations/ohio/columbus"
+                target="_blank"
+                rel="noopener"
+                >Bar Italia</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://valentinasitalian.com/"
+                target="_blank"
+                rel="noopener"
+                >Valentina's</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://siamorchidcolumbus.com/"
+                target="_blank"
+                rel="noopener"
+                >Siam Orchid Thai Restaurant</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.sycamoregv.com/"
+                target="_blank"
+                rel="noopener"
+                >Sycamore</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.cobrabarcolumbus.com/"
+                target="_blank"
+                rel="noopener"
+                >Cobra</a
+              >
+            </li>
+            <li>
+              <a href="https://www.eatamara.com/" target="_blank" rel="noopener"
+                >Amara</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.novellaosteria.org/"
+                target="_blank"
+                rel="noopener"
+                >Novella Osteria</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.dineatagni.com/"
+                target="_blank"
+                rel="noopener"
+                >Agni</a
+              >
+            </li>
+            <li>
+              <a href="https://bonifacio614.com/" target="_blank" rel="noopener"
+                >Bonifacio</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.dineatgenes.com/"
+                target="_blank"
+                rel="noopener"
+                >Gene's</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.antiquesonhigh.com/homepage"
+                target="_blank"
+                rel="noopener"
+                >Antiques on High</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.lawbirdbar.com/"
+                target="_blank"
+                rel="noopener"
+                >Law Bird</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.hanksseafoodrestaurant.com/location/columbus/"
+                target="_blank"
+                rel="noopener"
+                >Hank's Low Country</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://khaabofcolumbus.com/"
+                target="_blank"
+                rel="noopener"
+                >Khaab Indian Kitchen &amp; Bar</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="index-group">
+          <h4>Coffee Shops &amp; Bakeries</h4>
+          <div class="group-sub mono">For the morning after</div>
+          <ul class="index-list">
+            <li>
+              <a
+                href="https://www.eatatjoyas.com/"
+                target="_blank"
+                rel="noopener"
+                >Joya's</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.onelinecoffee.com/"
+                target="_blank"
+                rel="noopener"
+                >One Line Coffee</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://the-roosevelt-coffeehouse.square.site/"
+                target="_blank"
+                rel="noopener"
+                >Roosevelt Coffeehouse</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.pistaciavera.com/"
+                target="_blank"
+                rel="noopener"
+                >Pistacia Vera</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://dan-the-baker.com/"
+                target="_blank"
+                rel="noopener"
+                >Dan the Baker</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/coffee.palomino/"
+                target="_blank"
+                rel="noopener"
+                >Coffee Palomino</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/florincoffee/"
+                target="_blank"
+                rel="noopener"
+                >Florin Coffee</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/briosocoffee/"
+                target="_blank"
+                rel="noopener"
+                >Brioso Roastery and Coffee Bar</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/kapecoffee.co/"
+                target="_blank"
+                rel="noopener"
+                >Kape Coffee</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://callinyourbluffcoffee.com/"
+                target="_blank"
+                rel="noopener"
+                >Callin' Your Bluff Coffee</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.loverileycakes.com/"
+                target="_blank"
+                rel="noopener"
+                >Love Riley</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="index-group">
+          <h4>Anytime Spots</h4>
+          <div class="group-sub mono">No date required</div>
+          <ul class="index-list index-list--notes">
+            <li>
+              <a
+                href="https://grandviewtheater.com/"
+                target="_blank"
+                rel="noopener"
+                >Grandview Theater &amp; Drafthouse</a
+              >
+              <span class="idx-note"
+                >Two movie screens, a full bar with 40 draft beers, and an
+                in-house pizza kitchen.</span
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.golfclubofdublin.com/"
+                target="_blank"
+                rel="noopener"
+                >Golf Club of Dublin</a
+              >
+              <span class="idx-note"
+                >The Midwest's only true links golf experience, with fescue turf
+                and hand-stacked sod bunkers.</span
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.pinsbar.com/locations/columbus/activities"
+                target="_blank"
+                rel="noopener"
+                >PINS Mechanical Co.</a
+              >
+              <span class="idx-note"
+                >Duckpin bowling, arcade games, and a big backyard patio.</span
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.fpconservatory.org/"
+                target="_blank"
+                rel="noopener"
+                >Franklin Park Conservatory</a
+              >
+              <span class="idx-note"
+                >Botanical gardens and glasshouses, good for any
+                afternoon.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mono">A COLUMBUS WEEKEND GUIDE — SEPTEMBER 2026</footer>
+  </body>
+</html>
